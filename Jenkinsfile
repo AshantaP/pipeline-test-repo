@@ -30,5 +30,11 @@ pipeline {
                 echo "User path is ${env.USER_PATH}"
             }
         }
+        stage('Variable Status') {
+            steps {
+                sh 'df -Th'
+                echo "sh ${env.WORKSPACE}"
+            }
+        }
     }
 }
