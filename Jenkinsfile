@@ -27,7 +27,7 @@ pipeline {
             }
             steps {
                 echo "User name is ${env.USER_NAME}"
-                echo "User path is ${env.USER_PATH"
+                echo "User path is ${env.USER_PATH}"
             }
         }
     }
