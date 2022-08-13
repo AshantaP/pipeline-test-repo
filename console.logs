@@ -1,0 +1,105 @@
+2022-08-13T15:31:48.566Z] Started by user AltSquare Technology
+[2022-08-13T15:31:48.646Z] [Pipeline] Start of Pipeline
+[2022-08-13T15:31:48.931Z] [Pipeline] node
+[2022-08-13T15:31:48.954Z] Running on database in /home/demo/jenkins_home/jenkins_home/workspace/Non-PROD/dbt_deployment
+[2022-08-13T15:31:48.957Z] [Pipeline] {
+[2022-08-13T15:31:48.976Z] [Pipeline] stage
+[2022-08-13T15:31:48.980Z] [Pipeline] { (Git Checkout)
+[2022-08-13T15:31:49.014Z] [Pipeline] git
+[2022-08-13T15:31:49.025Z] The recommended git tool is: NONE
+[2022-08-13T15:31:49.030Z] No credentials specified
+[2022-08-13T15:31:49.037Z] Fetching changes from the remote Git repository
+[2022-08-13T15:31:48.549Z]  > git rev-parse --resolve-git-dir /home/demo/jenkins_home/jenkins_home/workspace/Non-PROD/dbt_deployment/.git # timeout=10
+[2022-08-13T15:31:48.555Z]  > git config remote.origin.url https://github.com/AshantaP/Test.git/ # timeout=10
+[2022-08-13T15:31:48.562Z] Fetching upstream changes from https://github.com/AshantaP/Test.git/
+[2022-08-13T15:31:48.562Z]  > git --version # timeout=10
+[2022-08-13T15:31:48.567Z]  > git --version # 'git version 2.34.1'
+[2022-08-13T15:31:48.567Z]  > git fetch --tags --force --progress -- https://github.com/AshantaP/Test.git/ +refs/heads/*:refs/remotes/origin/* # timeout=10
+[2022-08-13T15:32:08.637Z] Checking out Revision d6419a356496b8378e6171ec597874ad2c8e8865 (refs/remotes/origin/main)
+[2022-08-13T15:32:08.687Z] Commit message: "dbt_project"
+[2022-08-13T15:32:08.135Z]  > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+[2022-08-13T15:32:08.149Z]  > git config core.sparsecheckout # timeout=10
+[2022-08-13T15:32:08.158Z]  > git checkout -f d6419a356496b8378e6171ec597874ad2c8e8865 # timeout=10
+[2022-08-13T15:32:08.162Z]  > git branch -a -v --no-abbrev # timeout=10
+[2022-08-13T15:32:08.175Z]  > git branch -D main # timeout=10
+[2022-08-13T15:32:08.179Z]  > git checkout -b main d6419a356496b8378e6171ec597874ad2c8e8865 # timeout=10
+[2022-08-13T15:32:08.196Z]  > git rev-list --no-walk d6419a356496b8378e6171ec597874ad2c8e8865 # timeout=10
+[2022-08-13T15:32:08.718Z] [Pipeline] }
+[2022-08-13T15:32:08.742Z] [Pipeline] // stage
+[2022-08-13T15:32:08.764Z] [Pipeline] stage
+[2022-08-13T15:32:08.767Z] [Pipeline] { (DBT Version)
+[2022-08-13T15:32:08.811Z] [Pipeline] sh
+[2022-08-13T15:32:09.110Z] + dbt --version
+[2022-08-13T15:34:30.666Z] Core:
+[2022-08-13T15:34:30.666Z]   - installed: 1.2.0
+[2022-08-13T15:34:30.666Z]   - latest:    1.2.0 - [32mUp to date![0m
+[2022-08-13T15:34:30.666Z] 
+[2022-08-13T15:34:30.666Z] Plugins:
+[2022-08-13T15:34:30.666Z]   - snowflake: 1.2.0 - [32mUp to date![0m
+[2022-08-13T15:34:30.681Z] [Pipeline] }
+[2022-08-13T15:34:30.702Z] [Pipeline] // stage
+[2022-08-13T15:34:30.716Z] [Pipeline] stage
+[2022-08-13T15:34:30.719Z] [Pipeline] { (Deployment)
+[2022-08-13T15:34:30.757Z] [Pipeline] sh
+[2022-08-13T15:34:31.040Z] + echo /home/demo/jenkins_home/jenkins_home/workspace/Non-PROD/dbt_deployment
+[2022-08-13T15:34:31.040Z] /home/demo/jenkins_home/jenkins_home/workspace/Non-PROD/dbt_deployment
+[2022-08-13T15:34:31.063Z] [Pipeline] sh
+[2022-08-13T15:34:31.363Z] + cd /home/demo/jenkins_home/jenkins_home/workspace/Non-PROD/dbt_deployment
+[2022-08-13T15:34:31.386Z] [Pipeline] sh
+[2022-08-13T15:34:31.675Z] + ls -lrt
+[2022-08-13T15:34:31.675Z] total 52
+[2022-08-13T15:34:31.675Z] drwxrwxr-x 2 demo demo 4096 Aug 13 14:52 tests
+[2022-08-13T15:34:31.675Z] drwxrwxr-x 2 demo demo 4096 Aug 13 14:52 snapshots
+[2022-08-13T15:34:31.675Z] drwxrwxr-x 2 demo demo 4096 Aug 13 14:52 seeds
+[2022-08-13T15:34:31.675Z] -rw-rw-r-- 1 demo demo  571 Aug 13 14:52 README.md
+[2022-08-13T15:34:31.675Z] -rw-rw-r-- 1 demo demo  277 Aug 13 14:52 profiles.yml
+[2022-08-13T15:34:31.675Z] drwxrwxr-x 2 demo demo 4096 Aug 13 14:52 pipeline-test-repo
+[2022-08-13T15:34:31.675Z] -rw-rw-r-- 1 demo demo  437 Aug 13 14:52 packages.yml
+[2022-08-13T15:34:31.675Z] drwxrwxr-x 4 demo demo 4096 Aug 13 14:52 models
+[2022-08-13T15:34:31.675Z] drwxrwxr-x 3 demo demo 4096 Aug 13 14:52 macros
+[2022-08-13T15:34:31.675Z] -rw-rw-r-- 1 demo demo  903 Aug 13 14:52 dbt_project.yml
+[2022-08-13T15:34:31.675Z] drwxrwxr-x 2 demo demo 4096 Aug 13 14:52 analyses
+[2022-08-13T15:34:31.675Z] -rw-rw-r-- 1 demo demo  562 Aug 13 14:52 3.2.0
+[2022-08-13T15:34:31.675Z] drwxrwxr-x 2 demo demo 4096 Aug 13 14:52 logs
+[2022-08-13T15:34:31.692Z] [Pipeline] sh
+[2022-08-13T15:34:31.975Z] + dbt debug --profiles-dir /home/demo/jenkins_home/jenkins_home/workspace/Non-PROD/dbt_deployment
+[2022-08-13T15:34:35.275Z] [0m15:34:34  Running with dbt=1.2.0
+[2022-08-13T15:34:50.267Z] dbt version: 1.2.0
+[2022-08-13T15:34:50.268Z] python version: 3.10.4
+[2022-08-13T15:34:50.268Z] python path: /usr/bin/python3
+[2022-08-13T15:34:50.268Z] os info: Linux-5.15.0-46-generic-x86_64-with-glibc2.35
+[2022-08-13T15:34:50.268Z] Using profiles.yml file at /home/demo/jenkins_home/jenkins_home/workspace/Non-PROD/dbt_deployment/profiles.yml
+[2022-08-13T15:34:50.268Z] Using dbt_project.yml file at /home/demo/jenkins_home/jenkins_home/workspace/Non-PROD/dbt_deployment/dbt_project.yml
+[2022-08-13T15:34:50.268Z] 
+[2022-08-13T15:34:50.268Z] Configuration:
+[2022-08-13T15:34:50.268Z]   profiles.yml file [[32mOK found and valid[0m]
+[2022-08-13T15:34:50.268Z]   dbt_project.yml file [[32mOK found and valid[0m]
+[2022-08-13T15:34:50.268Z] 
+[2022-08-13T15:34:50.268Z] Required dependencies:
+[2022-08-13T15:34:50.268Z]  - git [[32mOK found[0m]
+[2022-08-13T15:34:50.268Z] 
+[2022-08-13T15:34:50.268Z] Connection:
+[2022-08-13T15:34:50.268Z]   account: KE40036.ap-south-1.aws
+[2022-08-13T15:34:50.268Z]   user: aditi@bluepi.in
+[2022-08-13T15:34:50.268Z]   database: dbt
+[2022-08-13T15:34:50.268Z]   schema: dbt_schema
+[2022-08-13T15:34:50.268Z]   warehouse: COMPUTE_WH
+[2022-08-13T15:34:50.268Z]   role: SYSADMIN
+[2022-08-13T15:34:50.268Z]   client_session_keep_alive: False
+[2022-08-13T15:34:50.268Z]   Connection test: [[32mOK connection ok[0m]
+[2022-08-13T15:34:50.268Z] 
+[2022-08-13T15:34:50.268Z] [32mAll checks passed![0m
+[2022-08-13T15:34:50.288Z] [Pipeline] }
+[2022-08-13T15:34:50.307Z] [Pipeline] // stage
+[2022-08-13T15:34:50.321Z] [Pipeline] stage
+[2022-08-13T15:34:50.325Z] [Pipeline] { (DBT Deployment Status)
+[2022-08-13T15:34:50.363Z] [Pipeline] echo
+[2022-08-13T15:34:50.365Z] Deployment Successfully Completed
+[2022-08-13T15:34:50.372Z] [Pipeline] echo
+[2022-08-13T15:34:50.374Z]  For further details, please check the console logs
+[2022-08-13T15:34:50.377Z] [Pipeline] }
+[2022-08-13T15:34:50.397Z] [Pipeline] // stage
+[2022-08-13T15:34:50.406Z] [Pipeline] }
+[2022-08-13T15:34:50.421Z] [Pipeline] // node
+[2022-08-13T15:34:50.428Z] [Pipeline] End of Pipeline
+[2022-08-13T15:34:50.445Z] Finished: SUCCESS
